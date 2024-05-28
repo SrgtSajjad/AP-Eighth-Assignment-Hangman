@@ -1,16 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="hangman.HangmanController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="553.0" prefWidth="553.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hangman.HangmanController">
+   <children>
+      <ImageView fitHeight="572.0" fitWidth="554.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/_8418ad58-9522-49ec-ad6f-10ac00dc24a3.jpeg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="149.0" layoutX="221.0" layoutY="195.0" opacity="0.86" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" width="113.0" />
+      <Label layoutX="236.0" layoutY="216.0" text="Hangman">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="245.0" layoutY="303.0" mnemonicParsing="false" onAction="#getSignUpPage" prefHeight="27.0" prefWidth="64.0" styleClass="btn" text="Sign Up" />
+      <Button alignment="CENTER" layoutX="245.0" layoutY="263.0" mnemonicParsing="false" onAction="#getLogInPage" prefHeight="27.0" prefWidth="64.0" styleClass="btn" text="Log In" />
+      <AnchorPane fx:id="menuPane" layoutX="102.0" layoutY="92.0" prefHeight="369.0" prefWidth="351.0" style="-fx-background-color: white; -fx-border-color: black;">
+         <children>
+            <Label alignment="CENTER" layoutX="104.0" layoutY="14.0" prefHeight="46.0" prefWidth="142.0" text="Hangman">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <TextField fx:id="usernameField" layoutX="134.0" layoutY="134.0" promptText="yourUsername" />
+            <PasswordField fx:id="passwordField" layoutX="134.0" layoutY="184.0" promptText="yourPassword" />
+            <Label alignment="CENTER" layoutX="43.0" layoutY="132.0" prefHeight="17.0" prefWidth="83.0" text="Username">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="44.0" layoutY="183.0" prefHeight="17.0" prefWidth="83.0" text="Password">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="menuName" alignment="CENTER" layoutX="118.0" layoutY="80.0" prefHeight="27.0" prefWidth="113.0" text="menu">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Hyperlink fx:id="logInLink" layoutX="67.0" layoutY="313.0" onAction="#changeMenuToLogIn" text="⮜ Log In" />
+            <Hyperlink fx:id="signUpLink" layoutX="232.0" layoutY="313.0" onAction="#changeMenuToSignUp" text="Sign Up ⮞" />
+            <Label fx:id="logLabel" layoutX="44.0" layoutY="220.0" prefHeight="18.0" prefWidth="284.0" text="logs:" />
+            <Button alignment="CENTER" layoutX="143.0" layoutY="254.0" mnemonicParsing="false" onAction="#confirmInputs" prefHeight="27.0" prefWidth="64.0" styleClass="btn" text="Confirm" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
