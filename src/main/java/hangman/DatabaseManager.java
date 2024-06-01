@@ -15,7 +15,7 @@ public class DatabaseManager {
             c.setAutoCommit(false);
             System.out.println("Opened database successfully (insertUserInfo)");
 
-            stmt = c.prepareStatement("INSERT INTO userinfo(\"Name\", \"Username\", \"Password\") VALUES (?, ?, ?);");
+            stmt = c.prepareStatement("INSERT INTO userinfo(Name, Username, Password) VALUES (?, ?, ?);");
             stmt.setString(1, userInfo.getName());
             stmt.setString(2, userInfo.getUsername());
             stmt.setString(3, userInfo.getPassword());
@@ -44,9 +44,9 @@ public class DatabaseManager {
             userInfos = new ArrayList<>();
             while (rs.next()) {
                 UserInfo userInfo = new UserInfo();
-                userInfo.setName(rs.getString("Name"));
-                userInfo.setUsername(rs.getString("Username"));
-                userInfo.setPassword(rs.getString("Password"));
+                userInfo.setName(rs.getString("name"));
+                userInfo.setUsername(rs.getString("username"));
+                userInfo.setPassword(rs.getString("password"));
                 userInfos.add(userInfo);
             }
             rs.close();
@@ -69,7 +69,7 @@ public class DatabaseManager {
             c.setAutoCommit(false);
             System.out.println("Opened database successfully (selectUserInfo (" + username + "))");
 
-            stmt = c.prepareStatement("SELECT * FROM UserInfo WHERE \"Username\" = ?");
+            stmt = c.prepareStatement("SELECT * FROM UserInfo WHERE Username = ?");
             stmt.setString(1, username);
             ResultSet rs = stmt.executeQuery();
             userInfo = new UserInfo();
@@ -88,29 +88,6 @@ public class DatabaseManager {
         return userInfo;
     }
 
-    public void updateUserInfo(UserInfo userInfo) {
-        Connection c;
-        PreparedStatement stmt;
-        try {
-            Class.forName("org.postgresql.Driver");
-            c = DriverManager.getConnection("jdbc:postgresql://localhost:1234/Hangman", "postgres", "sajjad2005");
-            c.setAutoCommit(false);
-            System.out.println("Opened database successfully (updateUserInfo)");
-
-            stmt = c.prepareStatement("UPDATE userinfo SET \"Name\" = ?, \"Password\" = ? WHERE \"Username\" = ?;");
-            stmt.setString(1, userInfo.getName());
-            stmt.setString(2, userInfo.getPassword());
-            stmt.setString(3, userInfo.getUsername());
-            stmt.executeUpdate();
-            c.commit();
-            stmt.close();
-            c.close();
-            System.out.println("Operation done successfully (updateUserInfo)");
-        } catch (Exception e) {
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
-        }
-    }
-
     public void deleteUserInfo(String username) {
         Connection c;
         PreparedStatement stmt;
@@ -120,7 +97,7 @@ public class DatabaseManager {
             c.setAutoCommit(false);
             System.out.println("Opened database successfully (deleteUserInfo)");
 
-            stmt = c.prepareStatement("DELETE FROM userinfo WHERE \"Username\" = ?;");
+            stmt = c.prepareStatement("DELETE FROM userinfo WHERE Username = ?;");
             stmt.setString(1, username);
             stmt.executeUpdate();
             c.commit();
@@ -141,7 +118,7 @@ public class DatabaseManager {
             c.setAutoCommit(false);
             System.out.println("Opened database successfully (insertGameInfo)");
 
-            stmt = c.prepareStatement("INSERT INTO gameinfo(\"GameID\", \"Username\", \"Word\", \"WrongGuesses\", \"Time\",\"Win\") VALUES (?, ?, ?, ?, ?, ?);");
+            stmt = c.prepareStatement("INSERT INTO gameinfo(GameID, Username, Word, WrongGuesses, Time,Win) VALUES (?, ?, ?, ?, ?, ?);");
             stmt.setObject(1, gameInfo.getGameID());
             stmt.setString(2, gameInfo.getUsername());
             stmt.setString(3, gameInfo.getWord());
@@ -202,7 +179,7 @@ public class DatabaseManager {
             c.setAutoCommit(false);
             System.out.println("Opened database successfully (selectGameInfo)");
 
-            stmt = c.prepareStatement("SELECT * FROM GameInfo WHERE \"GameID\" = ?");
+            stmt = c.prepareStatement("SELECT * FROM GameInfo WHERE GameID = ?");
             stmt.setObject(1, gameID);
             ResultSet rs = stmt.executeQuery();
             gameInfo = new GameInfo();
@@ -234,7 +211,7 @@ public class DatabaseManager {
             c.setAutoCommit(false);
             System.out.println("Opened database successfully (updateGameInfo)");
 
-            stmt = c.prepareStatement("UPDATE gameinfo SET \"Username\" = ?, \"Word\" = ?, \"WrongGuesses\" = ?, \"Time\" = ?, \"Win\" = ? WHERE \"GameID\" = ?;");
+            stmt = c.prepareStatement("UPDATE gameinfo SET Username = ?, Word = ?, WrongGuesses = ?, Time = ?, Win = ? WHERE GameID = ?;");
             stmt.setString(1, gameInfo.getUsername());
             stmt.setString(2, gameInfo.getWord());
             stmt.setInt(3, gameInfo.getWrongGuesses());
@@ -260,7 +237,7 @@ public class DatabaseManager {
             c.setAutoCommit(false);
             System.out.println("Opened database successfully (deleteGameInfo)");
 
-            stmt = c.prepareStatement("DELETE FROM gameinfo WHERE \"GameID\" = ?;");
+            stmt = c.prepareStatement("DELETE FROM gameinfo WHERE GameID = ?;");
             stmt.setObject(1, gameID);
             stmt.executeUpdate();
             c.commit();
