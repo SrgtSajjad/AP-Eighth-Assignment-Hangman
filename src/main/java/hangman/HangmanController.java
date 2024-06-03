@@ -191,7 +191,7 @@ public class HangmanController {
         gameInfo.setWord(word);
         gameInfo.setUserInfo(userInfo);
         gameInfo.setWrongGuesses(wrongGuesses);
-        Database database = new Database();
+        DatabaseManager database = new DatabaseManager();
         database.insertGameInfo(gameInfo);
     }
 
