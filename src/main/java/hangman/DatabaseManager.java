@@ -248,4 +248,134 @@ public class DatabaseManager {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
     }
+
+    public boolean checkUserAvailability(String username) {
+        ArrayList<UserInfo> userInfos = selectUserInfos();
+        for (UserInfo userInfo: userInfos) {
+            if (userInfo.getUsername().equals(username)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public ArrayList<LeaderBoard> selectLeaderBoard() {
+        Connection c;
+        Statement stmt;
+        ArrayList<LeaderBoard> leaderBoards = null;
+        try {
+            Class.forName("org.postgresql.Driver");
+            c = DriverManager.getConnection("jdbc:postgresql://localhost:1234/Hangman", "postgres", "sajjad2005");
+            c.setAutoCommit(false);
+            System.out.println("Opened database successfully (selectLeaderboard)");
+
+            stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT Username, COUNT(Win) as Wins FROM public.gameinfo WHERE Win = true Group BY Username ORDER BY Wins desc;");
+            leaderBoards = new ArrayList<>();
+            while (rs.next()) {
+                LeaderBoard leaderBoard = new LeaderBoard();
+                leaderBoard.setUsername(rs.getString("Username"));
+                leaderBoard.setWins(rs.getInt("Wins"));
+                leaderBoards.add(leaderBoard);
+            }
+            rs.close();
+            stmt.close();
+            c.close();
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+        System.out.println("Operation done successfully (selectLeaderboard)");
+        return leaderBoards;
+    }
+
+    public ArrayList<PastGame> selectPastGames(UserInfo userInfo) {
+        Connection c;
+        PreparedStatement stmt;
+        ArrayList<PastGame> pastGames = null;
+        try {
+            Class.forName("org.postgresql.Driver");
+            c = DriverManager.getConnection("jdbc:postgresql://localhost:1234/Hangman", "postgres", "sajjad2005");
+            c.setAutoCommit(false);
+            System.out.println("Opened database successfully (selectPastGames)");
+
+            stmt = c.prepareStatement("SELECT word, time, win FROM public.gameinfo WHERE username = ?;");
+            stmt.setString(1, userInfo.getUsername());
+            ResultSet rs = stmt.executeQuery();
+            pastGames = new ArrayList<>();
+            while (rs.next()) {
+                PastGame pastGame = new PastGame();
+                pastGame.setWord(rs.getString("word"));
+                pastGame.setTime(rs.getInt("time"));
+                pastGame.setWin(rs.getBoolean("win"));
+                pastGames.add(pastGame);
+            }
+            rs.close();
+            stmt.close();
+            c.close();
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+        System.out.println("Operation done successfully (selectLeaderboard)");
+        return pastGames;
+    }
+
+    public static class LeaderBoard {
+        String username;
+        int wins;
+
+        public LeaderBoard() {
+        }
+
+        public String getUsername() {
+            return username;
+        }
+
+        public void setUsername(String username) {
+            this.username = username;
+        }
+
+        public int getWins() {
+            return wins;
+        }
+
+        public void setWins(int wins) {
+            this.wins = wins;
+        }
+    }
+
+    public static class PastGame {
+        String word;
+        int time;
+        boolean win;
+
+        public PastGame() {
+        }
+
+        public String getWord() {
+            return word;
+        }
+
+        public void setWord(String word) {
+            this.word = word;
+        }
+
+        public int getTime() {
+            return time;
+        }
+
+        public void setTime(int time) {
+            this.time = time;
+        }
+
+        public boolean isWin() {
+            return win;
+        }
+
+        public void setWin(boolean win) {
+            this.win = win;
+        }
+    }
+
 }
