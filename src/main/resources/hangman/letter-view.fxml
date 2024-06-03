@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="72.0" prefWidth="72.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="letterLabel" alignment="CENTER" layoutX="13.0" layoutY="3.0" prefHeight="61.0" prefWidth="46.0" visible="false">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
+      <Line endX="-8.499988555908203" endY="1.52587890625E-5" layoutX="64.0" layoutY="63.0" startX="-48.707096099853516" startY="1.52587890625E-5" strokeLineCap="ROUND" strokeWidth="5.0" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="mainPane" prefHeight="575.0" prefWidth="814.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hangman.HangmanController">
+   <children>
+      <ImageView fitHeight="575.0" fitWidth="886.0" layoutX="-11.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/old-textured-brick-wall-background.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="500.0" layoutX="40.0" layoutY="37.0" opacity="0.65" stroke="BLACK" strokeType="INSIDE" width="805.0" />
+      <Line fx:id="poleBottom" endX="100.0" layoutX="188.0" layoutY="377.0" nodeOrientation="LEFT_TO_RIGHT" startX="-68.20001220703125" stroke="#3b0c04" strokeWidth="5.0" visible="false" />
+      <Line fx:id="poleMain" endX="-100.0" endY="91.60000610351562" layoutX="302.0" layoutY="283.0" nodeOrientation="LEFT_TO_RIGHT" startX="-100.0" startY="-208.1999969482422" stroke="#3b0c04" strokeWidth="5.0" visible="false" />
+      <Line fx:id="poleTop" endX="99.0" layoutX="302.0" layoutY="74.0" nodeOrientation="LEFT_TO_RIGHT" startX="-100.0" stroke="#3c0c03" strokeWidth="5.0" visible="false" />
+      <Line fx:id="poleRope" endX="-100.0" endY="44.99998474121094" layoutX="502.0" layoutY="75.0" nodeOrientation="LEFT_TO_RIGHT" startX="-100.0" stroke="#873516" strokeWidth="2.0" visible="false" />
+      <Circle fx:id="manHead" fill="#ffffff00" layoutX="402.0" layoutY="151.0" nodeOrientation="LEFT_TO_RIGHT" radius="31.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="5.0" visible="false" />
+      <Line fx:id="manBody" endX="100.0" layoutX="302.0" layoutY="183.0" nodeOrientation="LEFT_TO_RIGHT" startX="100.0" startY="86.4000244140625" strokeWidth="5.0" visible="false" />
+      <Line fx:id="manRightArm" endX="-49.5999755859375" endY="-24.199996948242188" layoutX="502.0" layoutY="224.0" nodeOrientation="LEFT_TO_RIGHT" startX="-100.0" strokeWidth="5.0" visible="false" />
+      <Line fx:id="manLeftArm" endX="-49.5999755859375" endY="-24.199996948242188" layoutX="452.0" layoutY="248.0" nodeOrientation="LEFT_TO_RIGHT" startX="-103.0" startY="-46.59999084472656" strokeWidth="5.0" visible="false" />
+      <Line fx:id="manRightLeg" endX="-68.0" endY="-11.79998779296875" layoutX="505.0" layoutY="318.0" nodeOrientation="LEFT_TO_RIGHT" startX="-103.0" startY="-46.59999084472656" strokeWidth="5.0" visible="false" />
+      <Line fx:id="manLeftLeg" endX="-49.5999755859375" endY="-24.199996948242188" layoutX="450.0" layoutY="295.0" nodeOrientation="LEFT_TO_RIGHT" startX="-85.0" startY="12.800018310546875" strokeWidth="5.0" visible="false" />
+      <FlowPane fx:id="flowPane" layoutX="604.0" layoutY="71.0" prefHeight="340.0" prefWidth="204.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="btn" stylesheets="@../style.css" text="A">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="btn" stylesheets="@../style.css" text="B">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="btn" stylesheets="@../style.css" text="C">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="btn" stylesheets="@../style.css" text="D">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="btn" stylesheets="@../style.css" text="E">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="btn" stylesheets="@../style.css" text="F">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="btn" stylesheets="@../style.css" text="G">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="btn" stylesheets="@../style.css" text="H">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="btn" stylesheets="@../style.css" text="I">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="btn" stylesheets="@../style.css" text="J">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="btn" stylesheets="@../style.css" text="K">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="btn" stylesheets="@../style.css" text="L">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="btn" stylesheets="@../style.css" text="M">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="btn" stylesheets="@../style.css" text="N">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="btn" stylesheets="@../style.css" text="O">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="btn" stylesheets="@../style.css" text="P">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="btn" stylesheets="@../style.css" text="Q">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="btn" stylesheets="@../style.css" text="R">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="btn" stylesheets="@../style.css" text="S">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="btn" stylesheets="@../style.css" text="T">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="btn" stylesheets="@../style.css" text="U">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="btn" stylesheets="@../style.css" text="V">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="btn" stylesheets="@../style.css" text="W">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="btn" stylesheets="@../style.css" text="X">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="btn" stylesheets="@../style.css" text="Y">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <FlowPane.margin>
+                  <Insets left="50.0" />
+               </FlowPane.margin>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: black; -fx-border-width: 1; -fx-border-radius: 10; -fx-background-radius: 10;" styleClass="btn" stylesheets="@../style.css" text="Z">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <FlowPane.margin>
+                  <Insets right="50.0" />
+               </FlowPane.margin>
+            </Button>
+         </children>
+      </FlowPane>
+      <Label fx:id="timerLabel" layoutX="68.0" layoutY="81.0" prefHeight="30.0" prefWidth="98.0" text="Time: ">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <FlowPane fx:id="wordBox" layoutX="91.0" layoutY="382.0" prefHeight="148.0" prefWidth="554.0" />
+      <AnchorPane fx:id="gameOverPane" layoutX="272.0" layoutY="96.0" prefHeight="381.0" prefWidth="294.0" visible="false">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="382.0" stroke="BLACK" strokeType="INSIDE" width="294.0" />
+            <Label layoutX="42.0" layoutY="26.0" text="Game Over">
+               <font>
+                  <Font name="System Bold" size="40.0" />
+               </font>
+            </Label>
+            <Button layoutX="121.0" layoutY="338.0" mnemonicParsing="false" onAction="#returnToMenu" prefHeight="19.0" prefWidth="58.0" text="Exit">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Label fx:id="timeLabel" layoutX="54.0" layoutY="206.0" prefHeight="30.0" prefWidth="182.0" text="Time: ">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="winLabel" layoutX="76.0" layoutY="91.0" prefHeight="35.0" prefWidth="157.0" text="Win:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="wrongGuessesLabel" layoutX="54.0" layoutY="236.0" prefHeight="30.0" prefWidth="182.0" text="Wrong guesses:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Text fx:id="playerText" layoutX="54.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player: " wrappingWidth="181.5250244140625">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Text fx:id="wordText" layoutX="54.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Word:" wrappingWidth="181.5250244140625">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
